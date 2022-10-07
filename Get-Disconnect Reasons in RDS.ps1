@@ -1,0 +1,1 @@
+﻿get-winevent -filterhashtable @{ logname = "Microsoft-Windows-TerminalServices-LocalSessionManager/Operational" ; id = 40 ; Starttime = (Get-Date).AddDays(-1) } | export-csv C:\temp\disconnects.csv -NoTypeInformation -append
