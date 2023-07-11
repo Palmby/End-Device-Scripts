@@ -1,0 +1,14 @@
+$path = "Registry::HKCU\SOFTWARE\Policies\Microsoft\office\16.0\common\links"
+
+$browserchoice = Get-ItemPropertyValue -path $path -name 'browserchoice'
+
+
+if ($browserchoice -ne '0')
+
+{
+   New-ItemProperty  -path $path -name 'browserchoice' -propertyType 'DWORD' -value "0"
+
+}
+
+else {write-output "Registry key is already set for $env:USERNAME"}
+
